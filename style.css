@@ -67,4 +67,22 @@ button:hover{
     background:linear-gradient(#686de0, #a55eea);
     border: 1px solid white;
     color: white;
+
+}
+
+
+
+
+
+
+/* Media-queary */
+@media screen and (max-width:1300px){
+    .container{
+        width:60vw
+    }
+}
+@media screen and (max-width:770px){
+    .container{
+        width:80vw
+    } 
 }

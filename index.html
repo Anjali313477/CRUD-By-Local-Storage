@@ -17,23 +17,25 @@
             <h2>USER DETAILS</h2>
             <div>
                 <i class="fa-regular fa-user"></i>
-                <input type="text" id="name" placeholder="Full Name">
+                <input type="text" id="name" placeholder="Full Name" autocomplete="off">
             </div>
             <div>
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" id="mail" placeholder="Email">
+                <input type="email" id="mail" placeholder="Email" autocomplete="off">
             </div>
             <div>
                 <i class="fa-solid fa-square-phone-flip"></i>
-                <input type="number" id="number" placeholder="Contact Number">
+                <input type="text" id="number" placeholder="Contact Number" autocomplete="off">
             </div>
             <div>
                 <i class="fa-solid fa-house"></i>
-                <input type="text" id="adrs" placeholder="Address">
+                <input type="text" id="adrs" placeholder="Address" autocomplete="off">
             </div>
-            <button>Submit</button>
+            <button id="button">Submit</button>
         </form>
     </div>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
