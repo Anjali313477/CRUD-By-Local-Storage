@@ -12,9 +12,54 @@
 </head>
 
 <body>
-    <div class="container">
-        <form action="">
-            <h2>USER DETAILS</h2>
+
+    <div class="add">
+        <Button onclick="create()">+Add</Button>
+    </div>
+    <table class="table">
+
+        <head>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+        </head>
+        <tbody class="data_table"> 
+            <tr>
+
+                <td>anjali</td>
+                <td>anjalitadiyal5@gmail.com</td>
+                <td>9084140696</td>
+                <td>
+                    <button class="edit">Edit</button>
+                    <button class="Delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+
+                <td>Soniya</td>
+                <td>soniya6@gmail.com</td>
+                <td>7658654378</td>
+                <td>
+                    <button class="edit">Edit</button>
+                    <button class="Delete">Delete</button>
+                </td>
+            </tr>
+            <tr>
+
+                <td>Nikita</td>
+                <td>nikita7@gmail.com</td>
+                <td>9768543654</td>
+                <td>
+                    <button class="edit">Edit</button>
+                    <button class="Delete">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="">
+        <div class="container">
             <div>
                 <i class="fa-regular fa-user"></i>
                 <input type="text" id="name" placeholder="Full Name" autocomplete="off">
@@ -31,9 +76,9 @@
                 <i class="fa-solid fa-house"></i>
                 <input type="text" id="adrs" placeholder="Address" autocomplete="off">
             </div>
-            <button id="button">Submit</button>
-        </form>
-    </div>
+            <button id="button" onclick="submitform()">Submit</button>
+        </div>
+    </form>
     <script src="script.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

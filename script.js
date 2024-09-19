@@ -1,7 +1,5 @@
-let btn = document.querySelector("#button");
-btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    let userlist = []
+function submitform() {
+    event.preventDefault();
     let name = document.querySelector("#name").value.trim();
     let email = document.querySelector("#mail").value.trim();
     let contact = document.querySelector("#number").value.trim()
@@ -9,7 +7,6 @@ btn.addEventListener('click', (e) => {
 
     let chr = /^[A-Za-z\s]+$/
     var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-z]{2,8})(\.[a-z]+)?$/;
-
     if (name == "") {
         swal("Full Name is required!", "", "warning");
         return false;
@@ -38,24 +35,40 @@ btn.addEventListener('click', (e) => {
         swal("Address is required!", "", "warning")
         return false;
     }
+    let record = [{
+        Name: name,
+        Email: email,
+        Contact: contact,
+        Address: address
+    }]
 
 
-    //local storage
+    localStorage.setItem("object", JSON.stringify(record))
+    let table = document.querySelector(".data_table");
+    var object = localStorage.getItem("object");
+    var objectdata = JSON.parse(object);
+    var elements = "";
+    objectdata.map(record => {
+        elements +=`<tr>  
+        <td>${record.Name}</td>
+           <td>${record.Email}</td>
+                <td>${record.Contact}</td>
+                     <td>${record.Address}</td>
+          <td>
+           <button class="edit" >Edit</button>
+            <button class="delete"}>Delete</butteon>
+        </td>
+        </tr>`
+    })
 
+    table.innerHTML = elements;
+}
 
-    userlist.push({
-        UserName: name,
-        EmailID: email,
-        UserNumber: contact,
-        UserAddress: address
-    });
-
-    localStorage.setItem('Data', JSON.stringify(userlist));
-
-    swal("Form was submitted successfully!", "", "success");
-
-})
-
+function create() {
+    document.querySelector(".table").style.display = "none"
+    document.querySelector(".container").style.display = "block"
+    document.querySelector(".add").style.display = "none"
+}
 
 
 

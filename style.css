@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+form {
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -12,15 +12,16 @@ body {
 }
 
 .container {
-  
+    display: none;
     width: 35vw;
     background: linear-gradient(#686de0, #a55eea);
     padding-inline: 12px;
     border-radius: 5px;
+
 }
 
 h2 {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     text-align: center;
     margin-top: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
@@ -34,11 +35,11 @@ input {
     padding-left: 28px;
     font-size: 1rem;
     background-color: transparent;
-    color:white;
+    color: white;
 }
 
 input::placeholder {
-    color:white;
+    color: white;
 }
 
 div {
@@ -53,7 +54,7 @@ div i {
     color: white;
 }
 
-button{
+button {
     width: 100%;
     padding: 5px;
     text-transform: uppercase;
@@ -63,11 +64,28 @@ button{
     outline: none;
     border: none;
 }
-button:hover{
-    background:linear-gradient(#686de0, #a55eea);
+
+button:hover {
+    background: linear-gradient(#686de0, #a55eea);
     border: 1px solid white;
     color: white;
+}
 
+.add button{
+    width:10%;
+    margin-left: 9%;
+    background:linear-gradient(#686de0, #a55eea);
+}
+
+.table{
+    width: 100%;
+    text-align: center; 
+    font-size: 1.4rem;
+}
+
+.edit,.Delete{
+    width:30%;
+    background:linear-gradient(#686de0, #a55eea);
 }
 
 
@@ -76,7 +94,7 @@ button:hover{
 
 
 /* Media-queary */
-@media screen and (max-width:1300px){
+ /* @media screen and (max-width:1300px){
     .container{
         width:60vw
     }
@@ -85,4 +103,4 @@ button:hover{
     .container{
         width:80vw
     } 
-}
+} */
