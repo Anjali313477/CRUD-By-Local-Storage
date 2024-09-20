@@ -1,3 +1,26 @@
+function viewData() {
+    let table = document.querySelector(".data_table");
+    var object = localStorage.getItem("object");
+    var objectdata = JSON.parse(object);
+    var elements = "";
+    objectdata.map(record => {
+        elements += `<tr>  
+        <td>${record.Name}</td>
+           <td>${record.Email}</td>
+           <td>${record.Contact}</td>
+            <td>${record.Address}</td>
+        
+          <td>
+           <button class="edit"onclick={edt(${record.id})} >Update</button>
+            <button class="delete"onclick={dlt(${record.id})}>Delete</butteon>
+        </td>
+        </tr>`
+    })
+
+    table.innerHTML = elements;
+}
+
+
 function submitform() {
     event.preventDefault();
     let name = document.querySelector("#name").value.trim();
@@ -35,7 +58,9 @@ function submitform() {
         swal("Address is required!", "", "warning")
         return false;
     }
+
     let record = [{
+        id: 1,
         Name: name,
         Email: email,
         Contact: contact,
@@ -43,32 +68,55 @@ function submitform() {
     }]
 
 
-    localStorage.setItem("object", JSON.stringify(record))
-    let table = document.querySelector(".data_table");
-    var object = localStorage.getItem("object");
-    var objectdata = JSON.parse(object);
-    var elements = "";
-    objectdata.map(record => {
-        elements +=`<tr>  
-        <td>${record.Name}</td>
-           <td>${record.Email}</td>
-                <td>${record.Contact}</td>
-                     <td>${record.Address}</td>
-          <td>
-           <button class="edit" >Edit</button>
-            <button class="delete"}>Delete</butteon>
-        </td>
-        </tr>`
-    })
 
-    table.innerHTML = elements;
+    localStorage.setItem("object", JSON.stringify(record))
+    document.querySelector(".add").style.display = "block"
+    document.querySelector(".container").style.display = "none"
+    document.querySelector(".table").classList.remove("hide");
+
+    viewData();
+
+
 }
 
 function create() {
-    document.querySelector(".table").style.display = "none"
+
+    document.querySelector(".table").classList.add("hide");
     document.querySelector(".container").style.display = "block"
     document.querySelector(".add").style.display = "none"
 }
+
+
+function edt(id) {
+    document.querySelector('.container').style.display="block"
+  
+    let ID = parseInt(document.querySelector('.id').value);
+    let NAME = document.querySelector("#name").value
+    let EMAIL = document.querySelector("#mail").value
+    let CONTACT = document.querySelector("#number")
+    let ADDRESS = document.querySelector("#adrs").value
+
+    var index = data.findIndex(rec=>rec.id==id);
+        record[index]={
+        ID,NAME,EMAIL,CONTACT,ADDRESS
+        }
+        submitform()
+ 
+    }
+
+
+
+function dlt(id) {
+let object =localStorage.getItem("object");
+let objectdata=JSON.parse(object);
+objectdata=objectdata.filter(record=>record.id!==id);
+localStorage.setItem("object", JSON.stringify(objectdata));
+viewData()
+}
+
+
+
+
 
 
 
