@@ -21,7 +21,6 @@ form {
 }
 
 .container {
-    display: none;
     width: 35vw;
     background: linear-gradient(#686de0, #a55eea);
     padding-inline: 12px;

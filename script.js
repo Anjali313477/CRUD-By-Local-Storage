@@ -1,4 +1,4 @@
-function viewData() {
+function viewAllData() {
     let table = document.querySelector(".data_table");
     var object = localStorage.getItem("object");
     var objectdata = JSON.parse(object);
@@ -11,17 +11,18 @@ function viewData() {
             <td>${record.Address}</td>
         
           <td>
-           <button class="edit"onclick={edt(${record.id})} >Update</button>
-            <button class="delete"onclick={dlt(${record.id})}>Delete</butteon>
+           <button class="edit"onclick={editData(${record.id})} >Update</button>
+            <button class="delete"onclick={deleteData(${record.id})}>Delete</butteon>
         </td>
         </tr>`
     })
 
     table.innerHTML = elements;
+    document.querySelector("form").reset();  
 }
 
 
-function submitform() {
+function submitForm() {
     event.preventDefault();
     let name = document.querySelector("#name").value.trim();
     let email = document.querySelector("#mail").value.trim();
@@ -70,51 +71,49 @@ function submitform() {
 
 
     localStorage.setItem("object", JSON.stringify(record))
-    document.querySelector(".add").style.display = "block"
-    document.querySelector(".container").style.display = "none"
+    document.querySelector(".add").classList.remove("hide");
+    document.querySelector(".container").classList.add("hide")
     document.querySelector(".table").classList.remove("hide");
 
-    viewData();
+    viewAllData();
 
 
 }
 
-function create() {
-
+function showForm() {
     document.querySelector(".table").classList.add("hide");
-    document.querySelector(".container").style.display = "block"
-    document.querySelector(".add").style.display = "none"
+    document.querySelector(".container").classList.remove("hide")
+    document.querySelector(".add").classList.add("hide")
+
+    
 }
 
 
-function edt(id) {
-    document.querySelector('.container').style.display="block"
-  
-    let ID = parseInt(document.querySelector('.id').value);
-    let NAME = document.querySelector("#name").value
-    let EMAIL = document.querySelector("#mail").value
-    let CONTACT = document.querySelector("#number")
-    let ADDRESS = document.querySelector("#adrs").value
+function editData(id) {
+    document.querySelector('.container').classList.remove("hide")
+    document.querySelector('.table').classList.add("hide")
+    document.querySelector('.add').classList.add("hide")
 
-    var index = data.findIndex(rec=>rec.id==id);
-        record[index]={
-        ID,NAME,EMAIL,CONTACT,ADDRESS
-        }
-        submitform()
- 
-    }
+    let object = localStorage.getItem("object");
+    let objectdata = JSON.parse(object);
+    let record = objectdata.find(rec => rec.id == id)
 
+    document.querySelector('#name').value = record.Name;
+    document.querySelector('#mail').value = record.Email;
+    document.querySelector('#number').value = record.Contact;
+    document.querySelector('#adrs').value = record.Address;
 
-
-function dlt(id) {
-let object =localStorage.getItem("object");
-let objectdata=JSON.parse(object);
-objectdata=objectdata.filter(record=>record.id!==id);
-localStorage.setItem("object", JSON.stringify(objectdata));
-viewData()
 }
 
 
+
+function deleteData(id) {
+    let object = localStorage.getItem("object");
+    let objectdata = JSON.parse(object);
+    objectdata = objectdata.filter(record => record.id !== id);
+    localStorage.setItem("object", JSON.stringify(objectdata));
+    viewAllData()
+}
 
 
 

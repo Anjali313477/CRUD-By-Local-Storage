@@ -14,7 +14,7 @@
 <body>
 
     <div class="add">
-        <Button onclick="create()">+Add</Button>
+        <Button onclick="showForm()">+Add</Button>
     </div>
     <table class="table">
 
@@ -30,7 +30,7 @@
     </table>
 
     <form action="">
-        <div class="container">
+        <div class="container hide">
             <div>
                 <i class="fa-regular fa-user"></i>
                 <input type="text" id="name" placeholder="Full Name" autocomplete="off">
@@ -47,7 +47,7 @@
                 <i class="fa-solid fa-house"></i>
                 <input type="text" id="adrs" placeholder="Address" autocomplete="off">
             </div>
-            <button id="button" onclick="submitform()">Submit</button>
+            <button id="button" onclick="submitForm()">Submit</button>
         </div>
     </form>
     <script src="script.js"></script>
