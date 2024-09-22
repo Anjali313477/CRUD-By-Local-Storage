@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-body{
-    height:100vh;
-    width:100%;
+body {
+    height: 100vh;
+    width: 100%;
 }
 
-.hide{
-    display:none;
+.hide {
+    display: none;
 }
 
 form {
@@ -62,61 +62,66 @@ div i {
     color: white;
 }
 
-button {
+#button {
     width: 100%;
     padding: 5px;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 15px;
     outline: none;
     border: none;
     cursor: pointer;
+    transition: .3s linear;
 }
 
-.add button{
-    width:10%;
+#button:hover {
+    border: 1px solid white;
+    background: linear-gradient(#686de0, #a55eea);
+    color: white;
+}
+
+.add button {
+    padding: 5px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 10%;
     margin-left: 9%;
     transition: .3s linear;
-    border:none;
-    background:linear-gradient(#686de0, #a55eea);
+    background: linear-gradient(#686de0, #a55eea);
 }
 
-.add button:hover{
-    border:1px solid blue;
-    background: #ffff;
+.add button:hover {
+    color: white;
 }
 
-.table{
+.table {
     width: 100%;
-    text-align: center; 
+    text-align: center;
     font-size: 1.4rem;
 }
 
-.edit,.delete{
-    width:30%;
+.edit,
+.delete {
+    width: 30%;
+    outline: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
+
 }
-.edit{
-    background:green;
+
+.edit {
+    background: green;
+
 }
 
-.delete{
-    background:red;
+.delete {
+    background: red;
 }
-
-
-
-
-
-
-/* Media-queary */
- /* @media screen and (max-width:1300px){
-    .container{
-        width:60vw
-    }
-}
-@media screen and (max-width:770px){
-    .container{
-        width:80vw
-    } 
-} */

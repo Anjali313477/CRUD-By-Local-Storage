@@ -76,9 +76,9 @@ function submitForm() {
     document.querySelector(".table").classList.remove("hide");
 
     viewAllData();
-
-
+    
 }
+
 
 function showForm() {
     document.querySelector(".table").classList.add("hide");
